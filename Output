@@ -1,0 +1,66 @@
+Testing MaxMinStack called MMS
+------------------------------
+MMS size is 0
+MMS is empty: true
+Pushing 10 random numbers to MMS...
+Pushing 782
+Pushing 450
+Pushing 176
+Pushing 789
+Pushing 795
+Pushing 657
+Pushing 834
+Pushing 837
+Pushing 585
+Pushing 453
+MMS size is 10
+MMS is empty: false
+The top element on the MMS is:453
+The current maximum stored in MMS is: 837
+The current minimum stored in MMS is: 176
+Popping 5 numbers from MMS...
+Popped 453
+Popped 585
+Popped 837
+Popped 834
+Popped 657
+MMS size is 5
+MMS is empty: false
+The top element on the MMS is:795
+The current maximum stored in MMS is: 795
+The current minimum stored in MMS is: 176
+Testing LinkedArrayQueue called LAQ
+------------------------------
+LAQ size is: 0
+LAQ is empty: true
+LAQ has 0 arrays
+Adding 10 random numbers to LAQ...
+Adding 639
+Adding 726
+Adding 472
+Adding 565
+Adding 637
+Adding 749
+Adding 420
+Adding 585
+Adding 154
+Adding 416
+First element in LAQ: 639
+Last element in LAQ: 416
+LAQ size is: 10
+LAQ is empty: false
+LAQ has 2 arrays
+Removing 8 numbers from LAQ...
+Removed 639
+Removed 726
+Removed 472
+Removed 565
+Removed 637
+Removed 749
+Removed 420
+Removed 585
+First element in LAQ: 154
+Last element in LAQ: 416
+LAQ size is: 2
+LAQ is empty: false
+LAQ has 1 array
