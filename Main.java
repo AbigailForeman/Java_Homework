@@ -1,69 +1,74 @@
-import java.util.Random;
-public class Main {
+class Main {
   public static void main(String[] args) {
-    System.out.println ("Testing MaxMinStack called MMS");
-    System.out.println ("------------------------------");
-    MaxMinStack<Integer> mms = new MaxMinStack<Integer> ( );
-    System.out.println ("MMS size is " + mms.size ( ));
-    System.out.println ("MMS is empty: " + mms.isEmpty ( ) + "\n");
-    Random rand = new Random();
-    rand.setSeed(123);
-    System.out.println("Pushing 10 random numbers to MMS...");
-    try {
-      for(int i=0; i<10; i++) {
-        int r = rand.nextInt(1000);
-        System.out.println("Pushing " + r);
-        mms.push(r);
-      }
-    }
-    catch(IllegalStateException e) {
-      System.out.println(e.toString());
-    }
-    System.out.println("\nMMS size is " + mms.size());
-    System.out.println("MMS is empty: " + mms.isEmpty());
-    System.out.println("The top element on the MMS is:" + mms.top());
-    System.out.println("The current maximum stored in MMS is: " +
-            mms.maximum());
-    System.out.println("The current minimum stored in MMS is: " +
-            mms.minimum());
-    System.out.println("\nPopping 5 numbers from MMS...");
-    for(int i=0; i<5; i++) {
-      System.out.println("Popped " + mms.pop());
-    }
-    System.out.println("\nMMS size is " + mms.size());
-    System.out.println("MMS is empty: " + mms.isEmpty());
-    System.out.println("The top element on the MMS is:" + mms.top());
-    System.out.println("The current maximum stored in MMS is: " +
-            mms.maximum());
-    System.out.println("The current minimum stored in MMS is: " +
-            mms.minimum());
-    System.out.println("\n\n\n");
-    System.out.println("Testing LinkedArrayQueue called LAQ");
-    System.out.println("------------------------------");
-    LinkedArrayQueue<Integer> laq = new LinkedArrayQueue<Integer>();
-    System.out.println("LAQ size is: " + laq.size());
-    System.out.println("LAQ is empty: " + laq.isEmpty());
-    System.out.println("LAQ has " + laq.numArrays() + " arrays");
-    System.out.println("\nAdding 10 random numbers to LAQ...");
-    for(int i=0; i<10; i++) {
-      int r = rand.nextInt(1000);
-      System.out.println("Adding " + r);
-      laq.enqueue(r);
-    }
-    System.out.println("\nFirst element in LAQ: " + laq.first());
-    System.out.println("Last element in LAQ: " + laq.last());
-    System.out.println("LAQ size is: " + laq.size());
-    System.out.println("LAQ is empty: " + laq.isEmpty());
-    System.out.println("LAQ has " + laq.numArrays() + " arrays");
-    System.out.println("\nRemoving 8 numbers from LAQ...");
-    for(int i=0; i<8; i++) {
-      System.out.println("Removed " + laq.dequeue());
-    }
-    System.out.println("\nFirst element in LAQ: " + laq.first());
-    System.out.println("Last element in LAQ: " + laq.last());
-    System.out.println("LAQ size is: " + laq.size());
-    System.out.println("LAQ is empty: " + laq.isEmpty());
-    System.out.println("LAQ has " + laq.numArrays() + " arrays");
+  //  try {
+ //     new CDList<>().clone();
+  //  } catch (CloneNotSupportedException e) {
+  //    e.printStackTrace();
+ //   }
+//testing the default constructor
+    CDList<Integer> test = new CDList<Integer>();
+//add two elements to the list
+    test.addFirst(1);
+    test.addLast(2);
+    test.addLast(3);
+//remove the first element
+    test.removeFirst();
+//add three more elements
+    test.addFirst(3);
+    test.addLast(2);
+    test.addFirst(4);
+//remove the last element
+    test.removeLast();
+    System.out.println("test list is empty: " + test.isEmpty());
+    System.out.println("test list size: " + test.size());
+    System.out.println("test list first element: " + test.first());
+    System.out.println("test list last element: " + test.last());
+    System.out.print("test:");
+    test.printList();
+//rotate the list
+    test.rotate();
+    test.rotate();
+    System.out.println("rotate list twice to the left");
+    System.out.print("test:");
+    test.printList();
+//rotate the list
+    test.rotateBackward();
+    System.out.println("rotate list once to the right");
+    System.out.print("test:");
+    test.printList();
+    System.out.println("\ntesting String lists");
+//create a list of strings
+    CDList<String> test1 = new CDList<String>();
+    test1.addFirst("aa");
+    test1.addLast("bb");
+    test1.addLast("cc");
+    test1.addLast("dd");
+//clone it using the copy constructor
+    CDList<String> test2 = new CDList<String>(test1);
+//clone it by using clone method
+    CDList<String> test3 = test1.clone();
+    test3.addFirst("ff");
+    System.out.print("test1:");
+    test1.printList();
+    System.out.print("test2:");
+    test2.printList();
+    System.out.print("test3:");
+    test3.printList();
+//equivalence testing
+    if(test1.equals(test2))
+      System.out.println("test1 and test2 are equal");
+    if(!test1.equals(test3))
+      System.out.println("test1 and test3 are not equal");
+//test attach method
+    System.out.println("attaching test3 to test1");
+    test1.attach(test3);
+    System.out.print("test1:");
+    test1.printList();
+//test duplicate removal
+    System.out.println("removing duplicates from test1");
+    test1.removeDuplicates();
+    System.out.print("test1:");
+    test1.printList();
 
   }
-  }
+}
